@@ -1,26 +1,49 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+    --dark-blue: #10121a;
+    --gray-color: #1e1e1e;
+    --accent: #d7ff40;
+    --green-color: #78ff40;
+    --text-primary: #F0F0F0;
+    --text-secondary: #888888;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
+@theme {
+  --color-bg: #10121a;
+  --color-gray-color: #1e1e1e;
+  --color-accent: #d7ff40;
+  --color-green-color: #78ff40;
+  --color-text-primary: #F0F0F0;
+  --color-text-secondary: #94a3b8;
+  --font-sans: var(--font-cairo);
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+body {
+  background: var(--dark-blue);
+  color: var(--text-primary);
+  font-family: var(--font-cairo), sans-serif;
+  font-size: 1.2rem;
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+h1 {
+  font-size: clamp(2.6rem, 6vw, 3rem);
+  line-height: 1.05;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  font-family: Algerian, serif;
+}
+
+h2 {
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  line-height: 1.1;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+h3 {
+  font-size: clamp(1.25rem, 2.5vw, 1.6rem);
+  line-height: 1.2;
+  font-weight: 600;
 }
