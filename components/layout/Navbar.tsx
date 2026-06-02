@@ -46,7 +46,7 @@ export default function Navbar() {
                 {/* Desktop linkovi */}
                 <div className="hidden md:flex items-center gap-2">
                     {links.map((link) => (
-                        <Link key={link.href} href={link.href} className="group relative uppercase p-2.5 font-bold transition-colors duration-300 hover:text-accent">
+                        <Link key={link.href} href={link.href} className="group relative capitalize p-2.5 font-bold transition-colors duration-300 hover:text-accent">
                             {link.label}
                             <span className="absolute bottom-0 left-0 h-0.5 w-full bg-accent scale-x-0 origin-left transition-transform duration-300 group-hover:scale-x-100" />
                         </Link>

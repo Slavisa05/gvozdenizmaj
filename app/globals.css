@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+.font-algerian {
+  font-family: var(--font-algerian), serif;
+}
+
 :root {
     --dark-blue: #10121a;
     --gray-color: #1e1e1e;

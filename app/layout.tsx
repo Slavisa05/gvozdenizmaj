@@ -1,8 +1,15 @@
 import type { Metadata } from "next";
 import { Cairo, Geist_Mono } from "next/font/google";
+import localFont from "next/font/local"
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import "./globals.css";
+
+const algerianFont = localFont({
+  src: '../public/fonts/Algerian.ttf', 
+  variable: '--font-algerian',
+  display: 'swap',
+})
 
 const cairo = Cairo({
   variable: "--font-cairo",
@@ -27,7 +34,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${cairo.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${algerianFont.variable} ${cairo.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
         <Navbar />
