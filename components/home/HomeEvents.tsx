@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Subheading from "../ui/Subheading";
 import Button from "../ui/Button";
-import EventCard from "../shared/EventCard";
+import EventCard from "../eventss/EventCard";
 import { Events } from "@/data/events";
 
 export default function HomeEvents() {
@@ -20,7 +20,7 @@ export default function HomeEvents() {
             </div>
 
             <div className="grid md:grid-cols-3 gap-5">
-                {Events.map((event) => (
+                {Events.slice(0, 3).map((event) => (
                     <EventCard key={event.link} upcoming={event.upcoming} date={event.date} image={event.image} alt={event.alt} heading={event.heading} link={event.link} course={event.course} courseDescription={event.courseDescription} />
                 ))}
             </div>

@@ -2,13 +2,14 @@ import Link from "next/link";
 import { Clock3, Mail, MapPin, Phone } from "lucide-react";
 
 const links = [
-    {href: "/o-nama", label: "o nama"},
-    {href: "/dogadjaji", label: "događaji"},
-    {href: "/kursevi", label: "kursevi"},
-    {href: "/prodavnica", label: "prodavnica"},
-    {href: "/nase-oruzje", label: "naše oržuje"},
+    {href: "/", label: "početna"},
+    {href: "/about", label: "o nama"},
+    {href: "/events", label: "događaji"},
+    {href: "https://tacticalttt.com/kursevi.html", label: "kursevi"},
+    {href: "https://tacticalttt.com/prodavnica/", label: "prodavnica"},
+    {href: "/oruzje", label: "naše oržuje"},
     {href: "/cenovnik", label: "cenovnik"},
-    {href: "/kontakt", label: "kontaktirajte nas"},
+    {href: "/contact", label: "kontaktirajte nas"},
 ]
 
 export default function Footer() {

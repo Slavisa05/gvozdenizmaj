@@ -3,21 +3,37 @@
 import Link from "next/link"
 import Image from "next/image"
 import { useEffect, useState } from "react"
+import { usePathname } from "next/navigation"
+import { Mail, Phone } from "lucide-react"
 
 const links = [
-    {href: "/o-nama", label: "o nama"},
-    {href: "/dogadjaji", label: "događaji"},
-    {href: "/kursevi", label: "kursevi"},
-    {href: "/prodavnica", label: "prodavnica"},
-    {href: "/nase-oruzje", label: "naše oržuje"},
+    {href: "/", label: "početna"},
+    {href: "/about", label: "o nama"},
+    {href: "/events", label: "događaji"},
+    {href: "https://tacticalttt.com/kursevi.html", label: "kursevi"},
+    {href: "https://tacticalttt.com/prodavnica/", label: "prodavnica"},
+    {href: "/oruzje", label: "naše oržuje"},
     {href: "/cenovnik", label: "cenovnik"},
-    {href: "/kontakt", label: "kontaktirajte nas"},
+    {href: "/contact", label: "kontaktirajte nas"},
 ]
 
 export default function Navbar() {
     const [visible, setVisible] = useState(true);
     const [lastY, setLastY] = useState(0);
     const [menuOpen, setMenuOpen] = useState(false);
+    const pathname = usePathname();
+
+    const isActiveLink = (href: string) => {
+        if (!href.startsWith("/")) {
+            return false;
+        }
+
+        if (href === "/") {
+            return pathname === "/";
+        }
+
+        return pathname === href || pathname.startsWith(`${href}/`);
+    };
 
     useEffect(() => {
         const handleScroll = () => {
@@ -32,6 +48,17 @@ export default function Navbar() {
 
     return(
         <header className={`z-50 w-full backdrop-blur-3xl fixed px-[5vw] py-6 transition-transform duration-300 ${visible ? "translate-y-0" : "-translate-y-full"}`}>
+            <div className="w-full flex flex-col md:flex-row md:items-center md:justify-end gap-2 md:gap-6 border-b border-white/10 pb-3 mb-3 text-sm">
+                <a href="tel:+381641234567" className="inline-flex items-center gap-2 transition-colors duration-300 hover:text-accent">
+                    <Phone size={16} />
+                    <span>+381600727032</span>
+                </a>
+                <a href="mailto:info@gvozdenizmaj.com" className="inline-flex items-center gap-2 transition-colors duration-300 hover:text-accent">
+                    <Mail size={16} />
+                    <span>office@gvozdenizmaj.com</span>
+                </a>
+            </div>
+
             <nav className="relative w-full flex items-center justify-between">
                 <Link href="/">
                     <Image 
@@ -46,7 +73,11 @@ export default function Navbar() {
                 {/* Desktop linkovi */}
                 <div className="hidden md:flex items-center gap-2">
                     {links.map((link) => (
-                        <Link key={link.href} href={link.href} className="group relative capitalize p-2.5 font-bold transition-colors duration-300 hover:text-accent">
+                        <Link
+                            key={link.href}
+                            href={link.href}
+                            className={`group relative capitalize p-2.5 font-bold transition-colors duration-300 hover:text-accent ${isActiveLink(link.href) ? "text-accent" : ""}`}
+                        >
                             {link.label}
                             <span className="absolute bottom-0 left-0 h-0.5 w-full bg-accent scale-x-0 origin-left transition-transform duration-300 group-hover:scale-x-100" />
                         </Link>
@@ -84,7 +115,7 @@ export default function Navbar() {
                         <Link
                             key={link.href}
                             href={link.href}
-                            className="uppercase"
+                            className={`uppercase transition-colors duration-300 ${isActiveLink(link.href) ? "text-accent" : ""}`}
                             onClick={() => setMenuOpen(false)}
                         >
                             {link.label}

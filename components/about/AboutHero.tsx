@@ -2,7 +2,7 @@ import Image from "next/image"
 
 export default function AboutHero() {
     return(
-        <section className="w-full px-[5vw] pt-55 pb-10 flex items-center justify-center min-h-screen">
+        <section className="w-full px-[5vw] pt-70 pb-10 flex items-center justify-center min-h-screen">
             <div className="w-full grid md:grid-cols-2 gap-8">
                 <div className="flex flex-col justify-center gap-5">
                     <h1><span className="text-green-color uppercase">gvozdeni zmaj </span>— USUDI SE - PRIJAVI SE - UČESTVUJ</h1>

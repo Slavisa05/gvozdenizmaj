@@ -3,7 +3,7 @@ import Button from "../ui/Button";
 
 export default function HomeHero() {
     return(
-        <section className="relative w-full px-[5vw] pt-35 min-h-screen overflow-hidden flex items-center justify-center">
+        <section className="relative w-full px-[5vw] pt-55 min-h-screen overflow-hidden flex items-center justify-center">
             {/* BG slika */}
             <Image 
                 src="/hero-slika.png"
